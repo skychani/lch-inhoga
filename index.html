@@ -416,181 +416,137 @@ function makePattern(tc2,barColor,patternKey,scale){
 // ── 기본 데이터 (JSON 내장) ──────────────────────────────────
 const _DEFAULT_DATA = {
   "title": "마포구 성산동 165-72번지 일대 가로주택정비사업",
-  "date": "2026-05-15",
-  "memo": "※ 위 일정은 인허가 과정 및 조합의 일정에 따라 변경될 수 있습니다.",
-  "legendItems": [
-    {
-      "color": "#E85D5D",
-      "name": "접수"
-    },
-    {
-      "color": "#5B8DEF",
-      "name": "검토/협의"
-    },
-    {
-      "color": "#52B96A",
-      "name": "완료"
-    },
-    {
-      "color": "#F5A623",
-      "name": "인허가"
-    },
-    {
-      "color": "#9B59B6",
-      "name": "도시"
-    },
-    {
-      "color": "#D4A800",
-      "name": "조합"
-    }
-  ],
+  "date": "2026-05-20",
+  "memo": "※ 위 일정은 인허가 과정, 조합 일정 및 이주, 철거 진행 상황에 따라 변경될수 있습니다.(구조심의, 굴토심의 등)",
+  "zoom": 37,
+  "rowHeight": 50,
+  "barPad": 14,
+  "legendItems": [],
   "milestones": [
     {
       "id": "ms1",
       "name": "사업시행인가 접수",
-      "date": "2026-06-21",
+      "date": "2026-10-11",
       "color": "#DD2222"
     },
     {
       "id": "ms2",
       "name": "사업시행인가 완료",
-      "date": "2026-12-20",
+      "date": "2027-01-31",
       "color": "#CC6600"
     },
     {
       "id": "ms3",
       "name": "착공",
-      "date": "2027-03-21",
+      "date": "2027-04-25",
       "color": "#226622"
     },
     {
       "id": "ms1778803114126",
-      "name": "통합심의 완료",
-      "date": "2025-08-03",
+      "name": "면적확정",
+      "date": "2026-07-05",
       "color": "#f61313"
     }
   ],
   "rows": [
     {
       "type": "group",
-      "id": "g1",
-      "name": "관리계획",
+      "id": "g15",
+      "name": "성산동 조합",
       "anchor": "free",
       "offset": 0,
       "dep": "",
       "msref": "ms1",
-      "abs": 0,
+      "abs": 66,
       "emph": "none",
       "emphColor": "#ff8c00",
       "phases": [
         {
-          "name": "초기계획 작성",
-          "dur": 8,
-          "color": "purple"
+          "name": "조합일정",
+          "dur": 42,
+          "color": "green",
+          "textColor": "#ffffff"
         },
         {
-          "name": "관계기관 협의",
-          "dur": 6,
-          "color": "purple",
-          "pattern": "solid"
-        },
-        {
-          "name": "사업시행인가 준비",
-          "dur": 50,
-          "color": "purple",
-          "pattern": "vline"
-        },
-        {
-          "name": "사업성보정계수 적용",
-          "dur": 4,
-          "color": "purple"
-        },
-        {
-          "name": "관리계획변경 심의",
-          "dur": 4,
-          "color": "purple"
+          "name": "이주 / 철거",
+          "dur": 12,
+          "color": "green",
+          "textColor": "#ffffff",
+          "pattern": "dots"
         }
       ]
     },
     {
       "type": "group",
-      "id": "g2",
-      "name": "교통영향평가",
+      "id": "g1779233542079",
+      "name": "도시",
+      "anchor": "free",
+      "offset": 0,
+      "abs": 66,
+      "dep": "",
+      "msref": "ms1",
+      "emph": "none",
+      "emphColor": "#ff8c00",
+      "phases": [
+        {
+          "name": "보고서작성",
+          "dur": 2,
+          "color": "purple",
+          "pattern": "dots",
+          "textColor": "#ffffff"
+        },
+        {
+          "name": "사업보정계수 적용 통합심의",
+          "dur": 8,
+          "color": "purple",
+          "textColor": "#ffffff"
+        },
+        {
+          "name": "고시",
+          "dur": 4,
+          "color": "purple",
+          "pattern": "vline",
+          "textColor": "#ffffff"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "id": "g14",
+      "name": "건축",
       "anchor": "free",
       "offset": 0,
       "dep": "",
       "msref": "ms1",
-      "abs": 0,
+      "abs": 66,
       "emph": "none",
       "emphColor": "#ff8c00",
       "phases": [
         {
-          "name": "기초조사·도서작성",
-          "dur": 4,
-          "color": "red"
+          "name": "사업시행인가 도서 작성",
+          "dur": 26,
+          "color": "orange",
+          "pattern": "vline",
+          "textColor": "#ffffff"
         },
         {
-          "name": "심의기관 검토",
+          "name": "사전협의/보완",
           "dur": 8,
-          "color": "blue"
+          "color": "orange",
+          "textColor": "#ffffff"
         },
         {
-          "name": "의견반영 보완",
-          "dur": 2,
-          "color": "green"
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "id": "g3",
-      "name": "교육환경영향평가",
-      "anchor": "free",
-      "offset": 62,
-      "dep": "",
-      "msref": "ms1",
-      "abs": 0,
-      "emph": "none",
-      "emphColor": "#ff8c00",
-      "phases": [
-        {
-          "name": "도서작성",
-          "dur": 4,
-          "color": "red"
-        },
-        {
-          "name": "검토·협의",
+          "name": "유관부서/보완",
           "dur": 8,
-          "color": "blue"
+          "color": "orange",
+          "textColor": "#ffffff"
         },
         {
-          "name": "의견반영",
-          "dur": 2,
-          "color": "green"
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "id": "g4",
-      "name": "통합심의",
-      "anchor": "free",
-      "offset": 53,
-      "dep": "",
-      "msref": "ms1",
-      "abs": 12,
-      "emph": "none",
-      "emphColor": "#ff8c00",
-      "phases": [
-        {
-          "name": "심의신청·자료제출",
-          "dur": 5,
-          "color": "red"
-        },
-        {
-          "name": "심의위원회 검토",
-          "dur": 13,
-          "color": "blue"
+          "name": "착공도서 작성",
+          "dur": 12,
+          "color": "orange",
+          "pattern": "vline",
+          "textColor": "#ffffff"
         }
       ]
     },
@@ -602,104 +558,48 @@ const _DEFAULT_DATA = {
     },
     {
       "type": "group",
-      "id": "g5",
-      "name": "대우건설(시공사)",
-      "anchor": "free",
-      "offset": 0,
-      "dep": "",
-      "msref": "ms1",
-      "abs": 0,
-      "emph": "none",
-      "emphColor": "#ff8c00",
-      "phases": [
-        {
-          "name": "세대확정·기본설계",
-          "dur": 4,
-          "color": "red"
-        },
-        {
-          "name": "설계변경 협의",
-          "dur": 72,
-          "color": "blue"
-        },
-        {
-          "name": "실시설계",
-          "dur": 26,
-          "color": "yellow"
-        },
-        {
-          "name": "착공서류 작성",
-          "dur": 13,
-          "color": "green"
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "id": "g6",
-      "name": "지반조사",
-      "anchor": "free",
-      "offset": 0,
-      "dep": "",
-      "msref": "ms1",
-      "abs": 14,
-      "emph": "none",
-      "emphColor": "#ff8c00",
-      "phases": [
-        {
-          "name": "예비조사",
-          "dur": 4,
-          "color": "red"
-        },
-        {
-          "name": "본조사(시추·분석)",
-          "dur": 9,
-          "color": "blue"
-        },
-        {
-          "name": "보고서 작성",
-          "dur": 4,
-          "color": "green"
-        }
-      ]
-    },
-    {
-      "type": "group",
       "id": "g7",
       "name": "굴토심의",
       "anchor": "free",
       "offset": -17,
       "dep": "",
       "msref": "ms1",
-      "abs": 72,
+      "abs": 86,
       "emph": "none",
       "emphColor": "#ff8c00",
       "phases": [
         {
           "name": "흙막이 도서 작성",
           "dur": 4,
-          "color": "red"
+          "color": "yellow",
+          "textColor": "#ffffff",
+          "pattern": "dots"
         },
         {
           "name": "지하안전영향평가 완료대기",
-          "dur": 22,
-          "color": "blue",
-          "pattern": "vline"
+          "dur": 14,
+          "color": "gray",
+          "pattern": "vline",
+          "textColor": "#ffffff"
         },
         {
           "name": "도서작성 및 협의기간",
           "dur": 4,
-          "color": "blue"
+          "color": "yellow",
+          "textColor": "#ffffff"
         },
         {
           "name": "사전검토 및 의견제출",
           "dur": 6,
-          "color": "blue"
+          "color": "yellow",
+          "textColor": "#ffffff",
+          "pattern": "vline"
         },
         {
           "name": "의견반영 및 조치계획서 제출",
-          "dur": 5,
-          "color": "green"
+          "dur": 4,
+          "color": "yellow",
+          "textColor": "#ffffff"
         }
       ]
     },
@@ -711,59 +611,29 @@ const _DEFAULT_DATA = {
       "offset": -15,
       "dep": "",
       "msref": "ms1",
-      "abs": 72,
+      "abs": 86,
       "emph": "none",
       "emphColor": "#ff8c00",
       "phases": [
         {
           "name": "보고서 작성",
           "dur": 4,
-          "color": "red"
+          "color": "yellow",
+          "textColor": "#ffffff",
+          "pattern": "dots"
         },
         {
           "name": "검토/보완/행정처리",
-          "dur": 22,
-          "color": "blue"
+          "dur": 12,
+          "color": "yellow",
+          "textColor": "#ffffff"
         },
         {
           "name": "굴토심의 대기",
           "dur": 8,
-          "color": "blue",
-          "pattern": "vline"
-        },
-        {
-          "name": "시공협의",
-          "dur": 8,
-          "color": "green"
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "id": "g9",
-      "name": "풍동실험",
-      "anchor": "free",
-      "offset": -4,
-      "dep": "",
-      "msref": "ms1",
-      "abs": 69,
-      "emph": "none",
-      "emphColor": "#ff8c00",
-      "phases": [
-        {
-          "name": "일람도 형계획",
-          "dur": 4,
-          "color": "red"
-        },
-        {
-          "name": "풍동실험 실시",
-          "dur": 4,
-          "color": "blue"
-        },
-        {
-          "name": "풍압등록·보고서",
-          "dur": 4,
-          "color": "green"
+          "color": "gray",
+          "pattern": "vline",
+          "textColor": "#ffffff"
         }
       ]
     },
@@ -775,39 +645,81 @@ const _DEFAULT_DATA = {
       "offset": 0,
       "dep": "g9",
       "msref": "ms1",
-      "abs": 69,
+      "abs": 85,
       "emph": "none",
       "emphColor": "#ff8c00",
       "phases": [
         {
           "name": "데이터 작성",
           "dur": 4,
-          "color": "red"
+          "color": "teal",
+          "textColor": "#ffffff",
+          "pattern": "dots"
         },
         {
           "name": "풍동실험 대기",
-          "dur": 8,
-          "color": "blue"
+          "dur": 7,
+          "color": "gray",
+          "textColor": "#ffffff",
+          "pattern": "vline"
         },
         {
           "name": "풍동실험 반영",
           "dur": 4,
-          "color": "red"
+          "color": "teal",
+          "textColor": "#ffffff"
         },
         {
           "name": "성능설계",
-          "dur": 13,
-          "color": "blue"
+          "dur": 4,
+          "color": "teal",
+          "textColor": "#ffffff"
         },
         {
           "name": "도서작성",
           "dur": 4,
-          "color": "yellow"
+          "color": "teal",
+          "textColor": "#ffffff"
         },
         {
           "name": "구조심의 및 보완",
           "dur": 8,
-          "color": "green"
+          "color": "teal",
+          "textColor": "#ffffff",
+          "pattern": "vline"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "id": "g9",
+      "name": "풍동실험",
+      "anchor": "free",
+      "offset": -4,
+      "dep": "",
+      "msref": "ms1",
+      "abs": 85,
+      "emph": "none",
+      "emphColor": "#ff8c00",
+      "phases": [
+        {
+          "name": "실험모형제작",
+          "dur": 4,
+          "color": "blue",
+          "textColor": "#ffffff",
+          "pattern": "dots"
+        },
+        {
+          "name": "풍동실험",
+          "dur": 4,
+          "color": "blue",
+          "textColor": "#ffffff"
+        },
+        {
+          "name": "풍압실험/보고서",
+          "dur": 3,
+          "color": "blue",
+          "textColor": "#ffffff"
         }
       ]
     },
@@ -819,19 +731,22 @@ const _DEFAULT_DATA = {
       "offset": -2,
       "dep": "",
       "msref": "ms1",
-      "abs": 72,
+      "abs": 88,
       "emph": "none",
       "emphColor": "#ff8c00",
       "phases": [
         {
           "name": "재해영향평가",
           "dur": 4,
-          "color": "red"
+          "color": "green",
+          "textColor": "#ffffff",
+          "pattern": "dots"
         },
         {
           "name": "협의 및 보완",
           "dur": 4,
-          "color": "green"
+          "color": "green",
+          "textColor": "#ffffff"
         }
       ]
     },
@@ -843,40 +758,49 @@ const _DEFAULT_DATA = {
       "offset": -20,
       "dep": "",
       "msref": "ms1",
-      "abs": 72,
+      "abs": 88,
       "emph": "none",
       "emphColor": "#ff8c00",
       "phases": [
         {
           "name": "도서작성",
           "dur": 4,
-          "color": "red"
+          "color": "pink",
+          "textColor": "#ffffff",
+          "pattern": "dots"
         },
         {
           "name": "협의공문수신",
           "dur": 4,
-          "color": "blue"
+          "color": "pink",
+          "textColor": "#ffffff"
         },
         {
           "name": "기관협의",
-          "dur": 6,
-          "color": "blue"
-        },
-        {
-          "name": "보완",
-          "dur": 15,
-          "color": "yellow",
+          "dur": 5,
+          "color": "gray",
+          "textColor": "#ffffff",
           "pattern": "vline"
         },
         {
-          "name": "도서작성 및 협의/결로방지 성능평가",
+          "name": "보완",
           "dur": 6,
-          "color": "blue"
+          "color": "pink",
+          "pattern": "vline",
+          "textColor": "#ffffff"
+        },
+        {
+          "name": "도서작성 및 협의/결로방지 성능평가",
+          "dur": 5,
+          "color": "pink",
+          "textColor": "#ffffff"
         },
         {
           "name": "기관협의",
           "dur": 4,
-          "color": "purple"
+          "color": "gray",
+          "textColor": "#ffffff",
+          "pattern": "vline"
         }
       ]
     },
@@ -888,14 +812,16 @@ const _DEFAULT_DATA = {
       "offset": -40,
       "dep": "",
       "msref": "ms1",
-      "abs": 94,
+      "abs": 102,
       "emph": "none",
       "emphColor": "#ff8c00",
       "phases": [
         {
           "name": "해체심의",
-          "dur": 16,
-          "color": "blue"
+          "dur": 14,
+          "color": "orange",
+          "textColor": "#ffffff",
+          "pattern": "diag"
         }
       ]
     },
@@ -907,130 +833,31 @@ const _DEFAULT_DATA = {
     },
     {
       "type": "group",
-      "id": "g14",
-      "name": "사업시행계획인가",
+      "id": "g1779234606979",
+      "name": "협력사(구조, 토목, 조경, 기계, 전기, 소방)",
       "anchor": "free",
       "offset": 0,
+      "abs": 66,
       "dep": "",
       "msref": "ms1",
-      "abs": 0,
-      "emph": "both",
-      "emphColor": "#ff8c00",
-      "phases": [
-        {
-          "name": "조치계획반영 및 시공사, 조합협의",
-          "dur": 29,
-          "color": "orange"
-        },
-        {
-          "name": "사업시행인가 도서 작성",
-          "dur": 39,
-          "color": "orange",
-          "pattern": "vline"
-        },
-        {
-          "name": "사전협의/보완",
-          "dur": 8,
-          "color": "orange"
-        },
-        {
-          "name": "유관부서/보완",
-          "dur": 26,
-          "color": "orange"
-        },
-        {
-          "name": "착공도서 작성",
-          "dur": 13,
-          "color": "orange",
-          "pattern": "vline"
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "id": "g15",
-      "name": "성산동 조합",
-      "anchor": "free",
-      "offset": 0,
-      "dep": "",
-      "msref": "ms1",
-      "abs": 0,
       "emph": "none",
       "emphColor": "#ff8c00",
       "phases": [
         {
-          "name": "종전종후 자산평가",
-          "dur": 8,
-          "color": "yellow"
-        },
-        {
-          "name": "추정분담금 산정",
-          "dur": 8,
-          "color": "yellow"
-        },
-        {
-          "name": "조합원 분양",
-          "dur": 8,
-          "color": "yellow"
-        },
-        {
-          "name": "관리처분계획인가",
-          "dur": 78,
-          "color": "yellow"
-        },
-        {
-          "name": "이주 / 철거",
-          "dur": 13,
-          "color": "yellow"
+          "name": "사업시행인가 도서",
+          "dur": 26,
+          "color": "gray",
+          "pattern": "diagR",
+          "textColor": "#ffffff"
         }
       ]
     }
   ],
   "pointers": [
     {
-      "id": "pt1778802840397",
-      "label": "사업시행인가 접수",
-      "absWeek": 76,
-      "gid": "g14",
-      "pos": "above",
-      "color": "#dd4444"
-    },
-    {
-      "id": "pt1778803036532",
-      "label": "사업시행인가 완료",
-      "absWeek": 102,
-      "gid": "g14",
-      "pos": "above",
-      "color": "#dd4444"
-    },
-    {
-      "id": "pt1778803608377",
-      "label": "공람",
-      "absWeek": 72,
-      "gid": "g15",
-      "pos": "above",
-      "color": "#dd4444"
-    },
-    {
-      "id": "pt1778803643181",
-      "label": "총회",
-      "absWeek": 74,
-      "gid": "g15",
-      "pos": "above",
-      "color": "#dd4444"
-    },
-    {
-      "id": "pt1778803827675",
-      "label": "25.07.30 수정가결",
-      "absWeek": 30,
-      "gid": "g4",
-      "pos": "above",
-      "color": "#dd4444"
-    },
-    {
       "id": "pt1778804223293",
       "label": "지하안전영향평가 완료",
-      "absWeek": 98,
+      "absWeek": 102,
       "gid": "g8",
       "pos": "above",
       "color": "#dd4444"
@@ -1038,23 +865,15 @@ const _DEFAULT_DATA = {
     {
       "id": "pt1778804421154",
       "label": "도서제출",
-      "absWeek": 102,
+      "absWeek": 108,
       "gid": "g7",
       "pos": "below",
       "color": "#dd4444"
     },
     {
-      "id": "pt1778804488579",
-      "label": "위원 도서배포",
-      "absWeek": 110,
-      "gid": "g7",
-      "pos": "above",
-      "color": "#dd4444"
-    },
-    {
       "id": "pt1778804649660",
       "label": "굴토심의",
-      "absWeek": 108,
+      "absWeek": 114,
       "gid": "g7",
       "pos": "below",
       "color": "#dd4444"
@@ -1062,23 +881,15 @@ const _DEFAULT_DATA = {
     {
       "id": "pt1778804681920",
       "label": "굴토심의 완료",
-      "absWeek": 113,
+      "absWeek": 118,
       "gid": "g7",
       "pos": "below",
       "color": "#dd4444"
     },
     {
-      "id": "pt1778804883743",
-      "label": "풍동실험 완료",
-      "absWeek": 81,
-      "gid": "g9",
-      "pos": "above",
-      "color": "#dd4444"
-    },
-    {
       "id": "pt1778804921707",
       "label": "구조심의 접수",
-      "absWeek": 102,
+      "absWeek": 106,
       "gid": "g10",
       "pos": "above",
       "color": "#dd4444"
@@ -1086,7 +897,7 @@ const _DEFAULT_DATA = {
     {
       "id": "pt1778804988525",
       "label": "보고서 제출",
-      "absWeek": 76,
+      "absWeek": 92,
       "gid": "g11",
       "pos": "below",
       "color": "#dd4444"
@@ -1094,44 +905,29 @@ const _DEFAULT_DATA = {
     {
       "id": "pt1778805012033",
       "label": "완료",
-      "absWeek": 80,
+      "absWeek": 96,
       "gid": "g11",
       "pos": "below",
       "color": "#dd4444"
     },
     {
-      "id": "pt1778805270427",
-      "label": "관리처분계획인가접수",
-      "absWeek": 76,
-      "gid": "g15",
+      "id": "pt1778805497369",
+      "label": "완료",
+      "absWeek": 116,
+      "gid": "g10",
       "pos": "below",
       "color": "#dd4444"
     },
     {
-      "id": "pt1778805312913",
-      "label": "착공",
-      "absWeek": 115,
-      "gid": "g5",
-      "pos": "above",
-      "color": "#dd4444"
-    },
-    {
-      "id": "pt1778805497369",
+      "id": "pt1779233885661",
       "label": "완료",
-      "absWeek": 110,
-      "gid": "g10",
-      "pos": "above",
-      "color": "#dd4444"
-    },
-    {
-      "id": "pt1778805551535",
-      "label": "완료",
-      "absWeek": 114,
-      "gid": "g8",
+      "absWeek": 96,
+      "gid": "g9",
       "pos": "below",
       "color": "#dd4444"
     }
-  ]
+  ],
+  "periodBlocks": []
 };
 
 let legendItems = _DEFAULT_DATA.legendItems;
@@ -1519,6 +1315,40 @@ function renderToCtx(tc,tcanvas,forPrint=false){
   tc.fillStyle=forPrint?'#1a1a3a':co.txt;tc.font='600 11px sans-serif';tc.textAlign='left';
   tc.fillText('항목',10,yYear+H_YEAR-4);
 
+  // ── 기간 블록 — 행 그리기 전에 배경 먼저 칠하기 ──
+  if(periodBlocks&&periodBlocks.length){
+    periodBlocks.forEach(pb=>{
+      const sw=pb.startWeek||0;
+      const ew=pb.endWeek||0;
+      if(sw>=ew)return;
+      const x1=Math.max(wx(sw),LABEL_W);
+      const x2=Math.min(wx(ew),logicW);
+      if(x2<=x1)return;
+      const col=pb.color||'#FFF3CD';
+      // 데이터 행 전체 배경 (바보다 아래 레이어)
+      tc.fillStyle=col+'99';
+      tc.fillRect(x1,HDR_H,x2-x1,logicH-HDR_H);
+      // 헤더 영역 연하게
+      tc.fillStyle=col+'55';
+      tc.fillRect(x1,0,x2-x1,HDR_H);
+      // 좌우 경계선
+      tc.strokeStyle=col+'cc';tc.lineWidth=1.5;tc.setLineDash([4,3]);
+      if(wx(sw)>=LABEL_W){tc.beginPath();tc.moveTo(wx(sw),0);tc.lineTo(wx(sw),logicH);tc.stroke();}
+      if(wx(ew)<=logicW){tc.beginPath();tc.moveTo(wx(ew),0);tc.lineTo(wx(ew),logicH);tc.stroke();}
+      tc.setLineDash([]);
+      // 레이블 배지
+      if(pb.label&&x2-x1>20){
+        tc.font='bold 9px sans-serif';tc.textAlign='center';
+        const midX=x1+(x2-x1)/2;
+        const tw2=tc.measureText(pb.label).width+10;
+        tc.fillStyle=col+'ee';
+        rrFill(tc,midX-tw2/2,HDR_H+2,tw2,14,3);
+        tc.fillStyle='rgba(60,40,0,0.85)';
+        tc.fillText(pb.label,midX,HDR_H+12);
+      }
+    });
+  }
+
   if(!forPrint)hitAreas=[];
 
   // ── 행 렌더링 ──
@@ -1527,13 +1357,14 @@ function renderToCtx(tc,tcanvas,forPrint=false){
   rows.forEach((row,ri)=>{
     const rh=rowHeights[ri];
     if(row.type==='sep'){
-      // 구분선
-      tc.fillStyle=forPrint?'rgba(0,0,0,0.03)':co.bg;tc.fillRect(0,yCur,logicW,rh);
+      // 구분선 — 기간 블록 배경이 비치도록 반투명 처리
+      tc.fillStyle=forPrint?'rgba(0,0,0,0.03)':'rgba(128,128,128,0.06)';
+      tc.fillRect(0,yCur,logicW,rh);
       const lineY=yCur+rh/2;
       const sc=row.color||'#aaa';
-      // 배경 배지
-      tc.fillStyle=forPrint?'rgba(0,0,0,0.04)':'rgba(128,128,128,0.07)';
-      tc.fillRect(0,yCur,logicW,rh);
+      // 구분선 레이블 배경만 연하게 (기간 블록 안 가림)
+      tc.fillStyle=forPrint?'rgba(0,0,0,0.03)':'rgba(128,128,128,0.04)';
+      tc.fillRect(LABEL_W,yCur,logicW-LABEL_W,rh);
       tc.strokeStyle=sc;tc.lineWidth=forPrint?0.8:0.6;tc.setLineDash([5,4]);
       tc.beginPath();tc.moveTo(LABEL_W+2,lineY);tc.lineTo(logicW-2,lineY);tc.stroke();
       tc.setLineDash([]);
@@ -1558,13 +1389,16 @@ function renderToCtx(tc,tcanvas,forPrint=false){
       const hasFill=emph==='fill'||emph==='both';
       const hasOut=emph==='outline'||emph==='both';
 
-      // 행 배경
+      // 행 배경 — 기간 블록이 비치도록 반투명 처리
       if(hasFill){
         tc.fillStyle=forPrint?lightenHex(ec,0.88):hexToRgba(ec,0.08);
         tc.fillRect(0,yCur,logicW,rh);
       } else if(gi%2===1||isHov){
         tc.fillStyle=isHov?co.hover:co.rowAlt;tc.fillRect(0,yCur,logicW,rh);
       }
+      // 라벨 열 배경 (차트 영역은 기간 블록 비침, 라벨 열만 불투명)
+      tc.fillStyle=hasFill?(forPrint?lightenHex(ec,0.88):hexToRgba(ec,0.08)):(forPrint?'#fff':co.bg);
+      tc.fillRect(0,yCur,LABEL_W,rh);
 
       // 강조 테두리
       if(hasOut){
@@ -1576,7 +1410,7 @@ function renderToCtx(tc,tcanvas,forPrint=false){
       tc.beginPath();tc.moveTo(0,yCur+rh);tc.lineTo(logicW,yCur+rh);tc.stroke();
 
       // 라벨
-      tc.fillStyle=forPrint?'#fff':co.bg;tc.fillRect(0,yCur,LABEL_W,rh);
+      // (라벨 열 배경은 위에서 이미 칠함)
       if(hasFill){tc.fillStyle=forPrint?lightenHex(ec,0.88):hexToRgba(ec,0.08);tc.fillRect(0,yCur,LABEL_W,rh)}
       const lblFont=(hasOut||hasFill)?'600 11px sans-serif':'11px sans-serif';
       tc.font=lblFont;
@@ -2573,30 +2407,85 @@ let periodBlocks=[
   // {id, label, startWeek, endWeek, color}
 ];
 
+// 간트 주차 ↔ 연/월/주 변환
+function wToYMW(w){
+  // 절대 주차 → {yr, mo(1-12), wk(1-4)}
+  const absMonIdx=Math.floor(((w%48)+48)%48/4)+Math.floor(w/48)*12;
+  const yr=2025+Math.floor(absMonIdx/12);
+  const mo=((absMonIdx%12)+12)%12+1;
+  const wk=(((w%4)+4)%4)+1;
+  return{yr,mo,wk};
+}
+function ymwToW(yr,mo,wk){
+  // {yr, mo, wk} → 절대 주차
+  const absMonIdx=(yr-2025)*12+(mo-1);
+  return absMonIdx*4+(wk-1);
+}
+
 function openPeriodModal(){
   renderPeriodList();
   document.getElementById('period-modal-bg').classList.add('open');
 }
+
+function _pbSelHTML(prefix, idx, w, label){
+  const {yr,mo,wk}=wToYMW(w);
+  const yrOpts=[2025,2026,2027,2028,2029].map(y=>
+    `<option value="${y}"${yr===y?' selected':''}>${y}년</option>`).join('');
+  const moOpts=Array.from({length:12},(_,i)=>i+1).map(m=>
+    `<option value="${m}"${mo===m?' selected':''}>${m}월</option>`).join('');
+  const wkOpts=[1,2,3,4].map(k=>
+    `<option value="${k}"${wk===k?' selected':''}>${k}주</option>`).join('');
+  return `<span style="font-size:10px;color:var(--tx2);white-space:nowrap">${label}</span>
+    <select onchange="periodBlocks[${idx}].${prefix}Week=ymwToW(parseInt(this.closest('[data-pb]').querySelector('[data-yr-${prefix}]').value),parseInt(this.closest('[data-pb]').querySelector('[data-mo-${prefix}]').value),parseInt(this.closest('[data-pb]').querySelector('[data-wk-${prefix}]').value));render(false)"
+      data-yr-${prefix} style="font-size:11px;padding:2px 4px;border-radius:4px;border:0.5px solid var(--bd2);background:var(--bg);color:var(--tx)">${yrOpts}</select>
+    <select onchange="periodBlocks[${idx}].${prefix}Week=ymwToW(parseInt(this.closest('[data-pb]').querySelector('[data-yr-${prefix}]').value),parseInt(this.value),parseInt(this.closest('[data-pb]').querySelector('[data-wk-${prefix}]').value));render(false)"
+      data-mo-${prefix} style="font-size:11px;padding:2px 4px;border-radius:4px;border:0.5px solid var(--bd2);background:var(--bg);color:var(--tx)">${moOpts}</select>
+    <select onchange="periodBlocks[${idx}].${prefix}Week=ymwToW(parseInt(this.closest('[data-pb]').querySelector('[data-yr-${prefix}]').value),parseInt(this.closest('[data-pb]').querySelector('[data-mo-${prefix}]').value),parseInt(this.value));render(false)"
+      data-wk-${prefix} style="font-size:11px;padding:2px 4px;border-radius:4px;border:0.5px solid var(--bd2);background:var(--bg);color:var(--tx)">${wkOpts}</select>`;
+}
+
 function renderPeriodList(){
   const el=document.getElementById('period-list');el.innerHTML='';
-  if(!periodBlocks.length){el.innerHTML='<div style="padding:10px;text-align:center;font-size:11px;color:var(--tx3)">추가된 기간이 없습니다</div>';return;}
+  if(!periodBlocks.length){
+    el.innerHTML='<div style="padding:12px;text-align:center;font-size:11px;color:var(--tx3)">추가된 기간이 없습니다<br><span style="font-size:10px">＋ 기간 추가 버튼으로 명절·공백 기간을 추가하세요</span></div>';
+    return;
+  }
   periodBlocks.forEach((pb,i)=>{
     const row=document.createElement('div');
-    row.style.cssText='display:flex;align-items:center;gap:6px;padding:5px 8px;border-bottom:0.5px solid var(--bd);background:var(--bg)';
+    row.setAttribute('data-pb',i);
+    row.style.cssText='padding:8px;border-bottom:0.5px solid var(--bd);background:var(--bg)';
     row.innerHTML=`
-      <input type="color" value="${pb.color||'#FFEECC'}" oninput="periodBlocks[${i}].color=this.value" style="width:26px;height:22px;border-radius:3px;cursor:pointer;border:0.5px solid var(--bd2)">
-      <input type="text" value="${pb.label||''}" placeholder="명칭 (예: 설날)" oninput="periodBlocks[${i}].label=this.value" style="flex:1;font-size:11px;padding:2px 5px;border-radius:4px;border:0.5px solid var(--bd2);background:var(--bg);color:var(--tx)">
-      <label style="font-size:10px;color:var(--tx2)">시작주</label>
-      <input type="number" value="${pb.startWeek}" oninput="periodBlocks[${i}].startWeek=parseInt(this.value)||0" style="width:54px;font-size:11px;padding:2px 5px;border-radius:4px;border:0.5px solid var(--bd2);background:var(--bg);color:var(--tx)">
-      <label style="font-size:10px;color:var(--tx2)">종료주</label>
-      <input type="number" value="${pb.endWeek}" oninput="periodBlocks[${i}].endWeek=parseInt(this.value)||0" style="width:54px;font-size:11px;padding:2px 5px;border-radius:4px;border:0.5px solid var(--bd2);background:var(--bg);color:var(--tx)">
-      <button onclick="periodBlocks.splice(${i},1);renderPeriodList()" style="font-size:10px;padding:1px 6px;border:0.5px solid var(--bd2);border-radius:3px;color:var(--dan-tx);background:transparent;cursor:pointer">×</button>`;
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">
+        <input type="color" value="${pb.color||'#FFF3CD'}"
+          oninput="periodBlocks[${i}].color=this.value;render(false)"
+          style="width:28px;height:26px;border-radius:4px;cursor:pointer;border:0.5px solid var(--bd2);flex-shrink:0">
+        <input type="text" value="${pb.label||''}" placeholder="명칭 (예: 설날, 추석)"
+          oninput="periodBlocks[${i}].label=this.value"
+          style="flex:1;font-size:11px;padding:3px 6px;border-radius:4px;border:0.5px solid var(--bd2);background:var(--bg);color:var(--tx)">
+        <button onclick="periodBlocks.splice(${i},1);renderPeriodList();render(false)"
+          style="font-size:11px;padding:2px 8px;border:0.5px solid var(--bd2);border-radius:4px;color:var(--dan-tx);background:transparent;cursor:pointer;flex-shrink:0">×</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+        ${_pbSelHTML('start',i,pb.startWeek||0,'시작')}
+        <span style="font-size:11px;color:var(--tx3);margin:0 2px">~</span>
+        ${_pbSelHTML('end',i,pb.endWeek||4,'종료')}
+      </div>`;
     el.appendChild(row);
   });
 }
+
 function addPeriodBlock(){
-  periodBlocks.push({id:'pb'+Date.now(),label:'',startWeek:0,endWeek:4,color:'#FFF3CD'});
+  // 기본값: 현재 간트 화면 기준 가까운 시점
+  const todayW=Math.round((new Date()-ORIGIN)/(7*86400000));
+  periodBlocks.push({
+    id:'pb'+Date.now(),
+    label:'',
+    startWeek:todayW,
+    endWeek:todayW+2,
+    color:'#FFF3CD'
+  });
   renderPeriodList();
+  render(false);
 }
 function savePeriodBlocks(){
   document.getElementById('period-modal-bg').classList.remove('open');
