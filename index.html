@@ -1153,6 +1153,24 @@ const dw=d=>Math.round((d-ORIGIN)/(7*86400000));
 const wd=w=>{let d=new Date(ORIGIN);d.setDate(d.getDate()+w*7);return d};
 const fym=d=>d.getFullYear()+'년 '+(d.getMonth()+1)+'월';
 const wlabel=w=>{const d=wd(w);return d.getFullYear()+'년 '+(d.getMonth()+1)+'월 ~'+Math.ceil(d.getDate()/7)+'주'};
+
+// 간트 4주 블록 기준 표시 레이블
+// absWeek 0 = 2025년 1월 1주, 4주 = 1개월 고정
+function ganttLabel(w){
+  // 절대 주차 → 연/월/주차 (4주 블록 기준)
+  const absMonIdx=Math.floor(w/4);       // 0=2025년1월
+  const wkInMon=(((w%4)+4)%4)+1;        // 1~4주
+  const yr=2025+Math.floor(absMonIdx/12);
+  const mo=((absMonIdx%12)+12)%12+1;    // 1~12월
+  return yr+'년 '+mo+'월 '+wkInMon+'주';
+}
+// 간트 기준 날짜 문자열 (연/월만)
+function ganttMonthLabel(w){
+  const absMonIdx=Math.floor(w/4);
+  const yr=2025+Math.floor(absMonIdx/12);
+  const mo=((absMonIdx%12)+12)%12+1;
+  return yr+'년 '+mo+'월';
+}
 let WW=15;
 const DPR=window.devicePixelRatio||1;
 
@@ -2590,29 +2608,37 @@ function savePeriodBlocks(){
 // ═══════════════════════════════════════════
 function openSummaryPanel(){
   const today=new Date();
-  today.setHours(0,0,0,0); // 오늘 자정 기준
+  today.setHours(0,0,0,0);
+  // 오늘의 간트 주차
+  const todayW=dw(today);
+
   let html2='<div style="font-size:13px;font-weight:600;margin-bottom:10px">📊 일정 요약</div>';
 
-  // 마일스톤 D-day — 일(day) 단위로 계산
+  // 마일스톤 D-day — 간트 주차 기준으로 계산 후 일 단위 환산
   html2+='<div style="font-size:11px;font-weight:500;color:var(--tx2);margin-bottom:6px;border-bottom:0.5px solid var(--bd);padding-bottom:4px">마일스톤 D-day</div>';
   milestones.forEach(ms=>{
-    const msDate=new Date(ms.date+'T00:00:00');
-    msDate.setHours(0,0,0,0);
-    const diffMs=msDate-today;
-    const diffDays=Math.round(diffMs/86400000); // 밀리초 → 일
+    const mw=msWeek(ms);           // 마일스톤의 간트 주차
+    const diffW=mw-todayW;         // 주 차이
+    const diffDays=diffW*7;        // 주 → 일 (간트 기준과 일치)
+
     let label;
     if(diffDays===0) label='오늘';
     else if(diffDays>0) label='D-'+diffDays;
     else label='D+'+Math.abs(diffDays);
+
     const color=diffDays<0?'#E85D5D':diffDays===0?'#F5A623':'#5B8DEF';
-    html2+=`<div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:12px;border-bottom:0.5px solid var(--bd)">
+
+    // 간트 차트 위치 표시 (4주 블록 기준)
+    const ganttPos=ganttLabel(mw);
+
+    html2+=`<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:12px;border-bottom:0.5px solid var(--bd)">
       <span style="display:flex;align-items:center;gap:6px">
         <span style="width:8px;height:8px;border-radius:50%;background:${ms.color||'#DD2222'};flex-shrink:0;display:inline-block"></span>
-        ${ms.name}
+        <span>${ms.name}</span>
       </span>
-      <span style="display:flex;flex-direction:column;align-items:flex-end;gap:1px">
+      <span style="display:flex;flex-direction:column;align-items:flex-end;gap:2px">
         <span style="font-weight:700;font-size:13px;color:${color}">${label}</span>
-        <span style="font-size:10px;color:var(--tx3)">${ms.date}</span>
+        <span style="font-size:10px;color:var(--tx2)">${ganttPos}</span>
       </span>
     </div>`;
   });
@@ -2624,11 +2650,11 @@ function openSummaryPanel(){
     const allE=allGs.map((g,i)=>allS[i]+g.phases.reduce((s,p)=>s+p.dur,0));
     const minW2=Math.min(...allS),maxW2=Math.max(...allE);
     const totalWks=maxW2-minW2;
-    const todayW=Math.round((today-ORIGIN)/(7*86400000));
+
     html2+=`<div style="font-size:11px;font-weight:500;color:var(--tx2);margin:10px 0 6px;border-bottom:0.5px solid var(--bd);padding-bottom:4px">전체 일정</div>`;
     html2+=`<div style="font-size:12px;padding:3px 0">총 기간: <b>${totalWks}주</b> (약 ${Math.round(totalWks/4)}개월)</div>`;
-    html2+=`<div style="font-size:12px;padding:3px 0">시작: ${wlabel(minW2)}</div>`;
-    html2+=`<div style="font-size:12px;padding:3px 0">종료: ${wlabel(maxW2)}</div>`;
+    html2+=`<div style="font-size:12px;padding:3px 0">시작: ${ganttLabel(minW2)}</div>`;
+    html2+=`<div style="font-size:12px;padding:3px 0">종료: ${ganttLabel(maxW2)}</div>`;
 
     // 진행률 (오늘 기준)
     if(todayW>=minW2&&todayW<=maxW2){
